@@ -1,0 +1,43 @@
+/* === RESET === */
+*,*::before,*::after{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+/* === FONTS === */
+/* font size */
+$font-size: 16px;
+/* --- overpass --- */
+@import url('https://fonts.googleapis.com/css2?family=Overpass:wght@300;600&display=swap');
+$font-overpass: "Overpass", sans-serif;
+/* --- ubuntu --- */
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap');
+$font-ubuntu: "ubuntu", sans-serif;
+
+/* === COLORS === */
+
+/* --- primary --- */
+/* CTA text */
+$main-red: hsl(356, 100%, 66%);
+/* CTA hover, background */
+$main-red-light: hsl(355, 100%, 74%);
+/* headings */
+$main-blue: hsl(208, 49%, 24%);
+
+/* --- neutral --- */
+/* text */
+$main-white: hsl(0, 0%, 100%);
+/* footer text */
+$main-blue-gray: hsl(240, 2%, 79%);
+/* body copy */
+$main-blue-gray-dark: hsl(207, 13%, 34%);
+/* footer background */
+$main-blue-dark: hsl(240, 10%, 16%);
+
+/* --- gradients --- */
+/* Intro/CTA mobile nav */
+$gradiant1-from: hsl(13, 100%, 72%);
+$gradiant1-to: hsl(353, 100%, 62%);
+/* body */
+$gradiant1-from: hsl(237, 17%, 21%);
+$gradiant1-to: hsl(237, 23%, 32%);
