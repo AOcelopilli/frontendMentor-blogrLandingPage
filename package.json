@@ -1,0 +1,19 @@
+{
+  "name": "blogr-landing-page-main",
+  "version": "0.0.1",
+  "description": "landing page",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass --watch styles/sass/styles.scss styles/styles.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AOcelopilli/frontendMentor-blogrLandingPage.git"
+  },
+  "author": "Angel Pineda",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AOcelopilli/frontendMentor-blogrLandingPage/issues"
+  },
+  "homepage": "https://github.com/AOcelopilli/frontendMentor-blogrLandingPage#readme"
+}
