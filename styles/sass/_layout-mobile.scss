@@ -1,14 +1,27 @@
 $content-height: 80vh;
 $margin: 2rem;
 
-#main{
+$circle1: 45vh;
+$circle2: 35vh;
+%circle {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  z-index: -1;
+}
+
+#main {
   background: linear-gradient(155deg, $gradiant1-from, $gradiant1-to);
   min-height: $content-height;
   position: relative;
   overflow: hidden;
   border-bottom-left-radius: 5rem;
+  margin-bottom: $margin;
 
-  .bg-pattern{
+  .bg-pattern {
     background: url(../../images/bg-pattern-intro.svg) no-repeat;
     background-position: 35% 33%;
     background-size: 310%;
@@ -21,25 +34,24 @@ $margin: 2rem;
   }
 
   .text {
-    h1{
+    h1 {
       font-size: calc(1.5rem + 3vw);
       margin-bottom: $margin;
 
-      span{
+      span {
         display: block;
       }
     }
 
-    p{
+    p {
       font-size: calc(1rem + 1vw);
       width: 90%;
       margin: 0 auto $margin;
     }
   }
 
-  .actions{
-
-    button{
+  .actions {
+    button {
       font-family: $font-overpass;
       height: 50px;
       width: 40%;
@@ -52,6 +64,60 @@ $margin: 2rem;
       color: $main-red;
     }
   }
+}
 
+#design {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  color: $main-blue-gray-dark;
+  text-align: center;
+  line-height: 1.8rem;
+  padding: 1rem;
 
+  h2,
+  h3 {
+    color: $main-blue;
+    margin: $margin auto;
+    font-size: calc(2rem - 1vw);
+  }
+
+  h3,
+  p {
+    width: 80%;
+    margin: $margin auto;
+  }
+
+  p {
+    font-size: calc(1rem - 0.2vw);
+  }
+
+  .central-img {
+    background: url(../../images/illustration-editor-mobile.svg) no-repeat
+      center;
+    background-size: 125%;
+    border-radius: 0.5rem;
+    box-shadow: 0 20px 80px rgba($color: $main-blue, $alpha: 0.26);
+    width: 90%;
+    height: 30vh;
+    position: relative;
+    margin: 5rem auto;
+
+    &::after {
+      @extend %circle;
+      content: "";
+      width: $circle1;
+      height: $circle1;
+      border: solid thin $main-blue-gray;
+    }
+
+    &::before {
+      @extend %circle;
+      content: "";
+      width: $circle2;
+      height: $circle2;
+      border: solid thin $main-blue-gray-dark;
+    }
+  }
 }
