@@ -1,3 +1,82 @@
-header{
-  background-color: red;
+#header {
+  align-items: flex-start;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  top: 5vh;
+  position: absolute;
+  padding: 1rem;
+  z-index: 100;
+
+  img{
+    height: 4vh;
+  }
+
+}
+
+#menu{
+
+  .menu-btn{
+    position: relative;
+    background: transparent;
+    border: none;
+    min-width: 50px;
+    height: 100%;
+    outline: none;
+
+    &::before{ 
+      content: "";
+      background: url(../../images/icon-hamburger.svg) no-repeat center;
+      background-size: contain;
+      width: 2rem;
+      height: 2rem;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+    }
+  }
+
+
+  #menu-items{
+    position: absolute;
+    left: 5%;
+    top: 10vh;
+    width: 90%;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    background-color: $main-white;
+    display: none;
+  }
+
+  .dropdown{
+
+    display: grid;
+    place-items: center;
+
+    span{
+      color: $main-blue;
+      font-weight: 600;
+      position: relative;
+
+      &::after{
+        content: "";
+        background: url(../../images/icon-arrow-dark.svg) no-repeat center;
+        background-size: contain;
+        width: 10px;
+        height: 10px;
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translate(150%,-50%);
+      }
+    }
+
+
+    
+    ul{
+      list-style: none;
+    }
+  }
+
 }

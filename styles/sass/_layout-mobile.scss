@@ -1,0 +1,57 @@
+$content-height: 80vh;
+$margin: 2rem;
+
+#main{
+  background: linear-gradient(155deg, $gradiant1-from, $gradiant1-to);
+  min-height: $content-height;
+  position: relative;
+  overflow: hidden;
+  border-bottom-left-radius: 5rem;
+
+  .bg-pattern{
+    background: url(../../images/bg-pattern-intro.svg) no-repeat;
+    background-position: 35% 33%;
+    background-size: 310%;
+    height: $content-height;
+    text-align: center;
+    color: $main-white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .text {
+    h1{
+      font-size: calc(1.5rem + 3vw);
+      margin-bottom: $margin;
+
+      span{
+        display: block;
+      }
+    }
+
+    p{
+      font-size: calc(1rem + 1vw);
+      width: 90%;
+      margin: 0 auto $margin;
+    }
+  }
+
+  .actions{
+
+    button{
+      font-family: $font-overpass;
+      height: 50px;
+      width: 40%;
+      vertical-align: middle;
+      border-radius: 1.5rem;
+      font-size: 1.2rem;
+      border: none;
+      margin: 0 0.5rem;
+      font-weight: bold;
+      color: $main-red;
+    }
+  }
+
+
+}

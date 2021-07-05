@@ -1,9 +1,4 @@
-/* === RESET === */
-*,*::before,*::after{
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+
 /* === FONTS === */
 /* font size */
 $font-size: 16px;
@@ -39,5 +34,17 @@ $main-blue-dark: hsl(240, 10%, 16%);
 $gradiant1-from: hsl(13, 100%, 72%);
 $gradiant1-to: hsl(353, 100%, 62%);
 /* body */
-$gradiant1-from: hsl(237, 17%, 21%);
-$gradiant1-to: hsl(237, 23%, 32%);
+$gradiant2-from: hsl(237, 17%, 21%);
+$gradiant2-to: hsl(237, 23%, 32%);
+
+/* === RESET === */
+*,*::before,*::after{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html{
+  font-family: $font-overpass;
+  font-size: $font-size;
+}
