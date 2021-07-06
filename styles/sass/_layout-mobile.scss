@@ -1,8 +1,18 @@
 $content-height: 80vh;
 $margin: 2rem;
+$font-p: calc(1rem + 1vw);
 
 $circle1: 45vh;
 $circle2: 35vh;
+
+@mixin insert-img($name, $x: 100vw, $y: 50vh) {
+  $img: "../../images/#{$name}";
+  background: url($img) no-repeat center;
+  background-size: contain;
+  height: $y;
+  width: $x;
+}
+
 %circle {
   content: "";
   position: absolute;
@@ -13,6 +23,34 @@ $circle2: 35vh;
   z-index: -1;
 }
 
+%text-style {
+  h2,
+  h3 {
+    color: $main-blue;
+    font-size: calc(2rem - 1vw);
+  }
+
+  h3,
+  p {
+    width: 80%;
+    margin: $margin auto;
+  }
+
+  p {
+    font-size: calc(1rem - 0.2vw);
+  }
+}
+
+%flex-col-cen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  text-align: center;
+  line-height: 1.8rem;
+  padding: 1rem;
+}
+
 #main {
   background: linear-gradient(155deg, $gradiant1-from, $gradiant1-to);
   min-height: $content-height;
@@ -21,7 +59,7 @@ $circle2: 35vh;
   border-bottom-left-radius: 5rem;
   margin-bottom: $margin;
 
-  .bg-pattern {
+  .bg-section {
     background: url(../../images/bg-pattern-intro.svg) no-repeat;
     background-position: 35% 33%;
     background-size: 310%;
@@ -44,7 +82,7 @@ $circle2: 35vh;
     }
 
     p {
-      font-size: calc(1rem + 1vw);
+      font-size: $font-p;
       width: 90%;
       margin: 0 auto $margin;
     }
@@ -67,31 +105,10 @@ $circle2: 35vh;
 }
 
 #design {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly;
+  @extend %flex-col-cen;
+  @extend %text-style;
+
   color: $main-blue-gray-dark;
-  text-align: center;
-  line-height: 1.8rem;
-  padding: 1rem;
-
-  h2,
-  h3 {
-    color: $main-blue;
-    margin: $margin auto;
-    font-size: calc(2rem - 1vw);
-  }
-
-  h3,
-  p {
-    width: 80%;
-    margin: $margin auto;
-  }
-
-  p {
-    font-size: calc(1rem - 0.2vw);
-  }
 
   .central-img {
     background: url(../../images/illustration-editor-mobile.svg) no-repeat
@@ -118,6 +135,65 @@ $circle2: 35vh;
       width: $circle2;
       height: $circle2;
       border: solid thin $main-blue-gray-dark;
+    }
+  }
+}
+
+#state {
+  @extend %text-style;
+
+  position: relative;
+  margin-top: 30vh;
+
+  .central-img {
+    @include insert-img("illustration-phones.svg", 105%, 90vh);
+    position: absolute;
+    transform: translate(-2.5%, -50%);
+  }
+
+  .card-design {
+    @extend %flex-col-cen;
+    background: linear-gradient(135deg, $gradiant2-from, $gradiant2-to);
+    color: $main-white;
+    padding: 0;
+    border-radius: 0 5rem 0;
+    overflow: hidden;
+
+    .bg-section {
+      @extend %text-style;
+      background: url(../../images/bg-pattern-circles.svg) no-repeat;
+      background-position: 50% -230px;
+      background-size: 160%;
+      height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 1rem;
+
+      h2 {
+        color: $main-white;
+        font-size: calc(2rem + 1vw);
+        line-height: 3rem;
+      }
+
+      p {
+        color: $main-white;
+      }
+    }
+  }
+
+  .middle-img {
+    @include insert-img("illustration-laptop-mobile.svg", 130%, 60vh);
+    transform: translate(-10%);
+  }
+
+  .text {
+    color: $main-blue-gray-dark;
+    text-align: center;
+    line-height: 1.8rem;
+
+    p {
+      font-size: calc(1rem + 0.3vw);
     }
   }
 }

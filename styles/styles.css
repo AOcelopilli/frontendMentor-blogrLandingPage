@@ -106,6 +106,34 @@ html {
   z-index: -1;
 }
 
+#state .card-design .bg-section h2, #state h2, #design h2,
+#state .card-design .bg-section h3,
+#state h3,
+#design h3 {
+  color: #1f3f5b;
+  font-size: calc(2rem - 1vw);
+}
+#state .card-design .bg-section h3, #state h3, #design h3,
+#state .card-design .bg-section p,
+#state p,
+#design p {
+  width: 80%;
+  margin: 2rem auto;
+}
+#state .card-design .bg-section p, #state p, #design p {
+  font-size: calc(1rem - 0.2vw);
+}
+
+#state .card-design, #design {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  text-align: center;
+  line-height: 1.8rem;
+  padding: 1rem;
+}
+
 #main {
   background: linear-gradient(155deg, #ff8f70, #ff3d54);
   min-height: 80vh;
@@ -114,7 +142,7 @@ html {
   border-bottom-left-radius: 5rem;
   margin-bottom: 2rem;
 }
-#main .bg-pattern {
+#main .bg-section {
   background: url(../../images/bg-pattern-intro.svg) no-repeat;
   background-position: 35% 33%;
   background-size: 310%;
@@ -151,28 +179,7 @@ html {
 }
 
 #design {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly;
   color: #4b5862;
-  text-align: center;
-  line-height: 1.8rem;
-  padding: 1rem;
-}
-#design h2,
-#design h3 {
-  color: #1f3f5b;
-  margin: 2rem auto;
-  font-size: calc(2rem - 1vw);
-}
-#design h3,
-#design p {
-  width: 80%;
-  margin: 2rem auto;
-}
-#design p {
-  font-size: calc(1rem - 0.2vw);
 }
 #design .central-img {
   background: url(../../images/illustration-editor-mobile.svg) no-repeat center;
@@ -195,6 +202,59 @@ html {
   width: 35vh;
   height: 35vh;
   border: solid thin #4b5862;
+}
+
+#state {
+  position: relative;
+  margin-top: 30vh;
+}
+#state .central-img {
+  background: url("../../images/illustration-phones.svg") no-repeat center;
+  background-size: contain;
+  height: 90vh;
+  width: 105%;
+  position: absolute;
+  transform: translate(-2.5%, -50%);
+}
+#state .card-design {
+  background: linear-gradient(135deg, #2c2d3f, #3f4164);
+  color: white;
+  padding: 0;
+  border-radius: 0 5rem 0;
+  overflow: hidden;
+}
+#state .card-design .bg-section {
+  background: url(../../images/bg-pattern-circles.svg) no-repeat;
+  background-position: 50% -230px;
+  background-size: 160%;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1rem;
+}
+#state .card-design .bg-section h2 {
+  color: white;
+  font-size: calc(2rem + 1vw);
+  line-height: 3rem;
+}
+#state .card-design .bg-section p {
+  color: white;
+}
+#state .middle-img {
+  background: url("../../images/illustration-laptop-mobile.svg") no-repeat center;
+  background-size: contain;
+  height: 60vh;
+  width: 130%;
+  transform: translate(-10%);
+}
+#state .text {
+  color: #4b5862;
+  text-align: center;
+  line-height: 1.8rem;
+}
+#state .text p {
+  font-size: calc(1rem + 0.3vw);
 }
 
 /*# sourceMappingURL=styles.css.map */
