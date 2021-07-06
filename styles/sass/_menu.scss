@@ -14,13 +14,14 @@
 }
 
 #menu {
-  .menu-btn {
+  #menu-btn {
     position: relative;
     background: transparent;
     border: none;
     min-width: 50px;
     height: 100%;
     outline: none;
+    cursor: pointer;
 
     &::before {
       content: "";
@@ -38,11 +39,36 @@
   #menu-items {
     position: absolute;
     left: 5%;
-    top: 10vh;
+    top: -200vh;
     width: 90%;
     border-radius: 0.5rem;
     padding: 1rem;
     background-color: $main-white;
+    animation: hideMenu 0.5s ease-out both;
+    /* AGREGAR ANIMACIÓN PARA DESAPARECER MENU BIEN BONITO */
+    @keyframes hideMenu {
+      from {
+        top: -50vh;
+      }
+
+      to {
+        top: -200vh;
+      }
+    }
+
+    &.active {
+      animation: showMenu 0.3s ease forwards;
+    }
+
+    @keyframes showMenu {
+      from {
+        top: -100vh;
+      }
+
+      to {
+        top: 10vh;
+      }
+    }
   }
 
   .dropdown {

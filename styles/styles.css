@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* === FONTS === */
 /* font size */
 /* --- overpass --- */
@@ -43,15 +44,16 @@ html {
   height: 4vh;
 }
 
-#menu .menu-btn {
+#menu #menu-btn {
   position: relative;
   background: transparent;
   border: none;
   min-width: 50px;
   height: 100%;
   outline: none;
+  cursor: pointer;
 }
-#menu .menu-btn::before {
+#menu #menu-btn::before {
   content: "";
   background: url(../../images/icon-hamburger.svg) no-repeat center;
   background-size: contain;
@@ -65,11 +67,32 @@ html {
 #menu #menu-items {
   position: absolute;
   left: 5%;
-  top: 10vh;
+  top: -200vh;
   width: 90%;
   border-radius: 0.5rem;
   padding: 1rem;
   background-color: white;
+  animation: hideMenu 0.5s ease-out both;
+  /* AGREGAR ANIMACIÓN PARA DESAPARECER MENU BIEN BONITO */
+}
+@keyframes hideMenu {
+  from {
+    top: -50vh;
+  }
+  to {
+    top: -200vh;
+  }
+}
+#menu #menu-items.active {
+  animation: showMenu 0.3s ease forwards;
+}
+@keyframes showMenu {
+  from {
+    top: -100vh;
+  }
+  to {
+    top: 10vh;
+  }
 }
 #menu .dropdown {
   display: grid;
