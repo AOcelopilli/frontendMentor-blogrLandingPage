@@ -70,16 +70,22 @@ html {
   border-radius: 0.5rem;
   padding: 1rem;
   background-color: white;
-  display: none;
 }
 #menu .dropdown {
   display: grid;
   place-items: center;
+  /* span */
+}
+#menu .dropdown.active span::after {
+  transform: translate(150%, -50%) rotate(180deg);
 }
 #menu .dropdown span {
   color: #1f3f5b;
   font-weight: 600;
+  font-size: calc(1.2rem + 1vw);
   position: relative;
+  padding: 1rem;
+  cursor: pointer;
 }
 #menu .dropdown span::after {
   content: "";
@@ -94,6 +100,47 @@ html {
 }
 #menu .dropdown ul {
   list-style: none;
+  background-color: rgba(200, 200, 203, 0.3);
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  text-align: center;
+  border-radius: 0.5rem;
+  height: 0px;
+  overflow: hidden;
+  transition: height 0.35s cubic-bezier(0.215, 0.61, 0.355, 1);
+  animation: contractDropdown 0.5s ease both;
+}
+#menu .dropdown ul li {
+  padding: 1rem;
+  color: #1f3f5b;
+  font-size: calc(1rem + 0.5vw);
+}
+#menu .actions {
+  display: flex;
+  flex-direction: column;
+}
+#menu .actions button {
+  width: 60%;
+  height: 60px;
+  border-radius: 2rem;
+  font-size: calc(1rem + 1vw);
+  font-weight: bold;
+  border: none;
+  outline: none;
+  margin: 0.5rem auto;
+  background-color: transparent;
+}
+#menu .actions button:first-child:hover {
+  border: thin solid #ff525d;
+}
+#menu .actions button:last-child {
+  background: linear-gradient(90deg, #ff8f70, #ff3d54);
+  color: white;
+}
+#menu .actions button:last-child:hover {
+  opacity: 0.75;
 }
 
 #design .central-img::before, #design .central-img::after {
