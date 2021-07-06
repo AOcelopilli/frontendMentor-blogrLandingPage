@@ -102,7 +102,7 @@ $circle2: 35vh;
       color: $main-red;
     }
   }
-}
+} /* main */
 
 #design {
   @extend %flex-col-cen;
@@ -137,7 +137,7 @@ $circle2: 35vh;
       border: solid thin $main-blue-gray-dark;
     }
   }
-}
+} /* design */
 
 #state {
   @extend %text-style;
@@ -146,8 +146,9 @@ $circle2: 35vh;
   margin-top: 30vh;
 
   .central-img {
-    @include insert-img("illustration-phones.svg", 105%, 90vh);
+    @include insert-img("illustration-phones.svg", 100%, 90vh);
     position: absolute;
+    background-size: 105% auto;
     transform: translate(-2.5%, -50%);
   }
 
@@ -183,8 +184,9 @@ $circle2: 35vh;
   }
 
   .middle-img {
-    @include insert-img("illustration-laptop-mobile.svg", 130%, 60vh);
-    transform: translate(-10%);
+    @include insert-img("illustration-laptop-mobile.svg", 100%, 60vh);
+    background-size: 130% auto;
+    transform: translate(1%);
   }
 
   .text {
@@ -194,6 +196,39 @@ $circle2: 35vh;
 
     p {
       font-size: calc(1rem + 0.3vw);
+    }
+  }
+} /* state */
+
+#footer {
+  @extend %flex-col-cen;
+
+  background-color: $main-blue-dark;
+  color: $main-white;
+  font-size: calc(1rem + 0.2vw);
+  border-top-right-radius: 5rem;
+  padding: 3rem 0;
+
+  h2 {
+    font-size: calc(1rem + 0.2vw);
+    padding: 2rem 0;
+  }
+
+  ul {
+    list-style: none;
+  }
+} /* footer */
+
+.attribution {
+  background-color: $main-blue-dark;
+  color: white;
+  text-align: center;
+
+  a {
+    color: $main-red;
+
+    &:hover {
+      color: $main-red-light;
     }
   }
 }

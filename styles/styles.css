@@ -124,7 +124,7 @@ html {
   font-size: calc(1rem - 0.2vw);
 }
 
-#state .card-design, #design {
+#footer, #state .card-design, #design {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -178,6 +178,7 @@ html {
   color: #ff525d;
 }
 
+/* main */
 #design {
   color: #4b5862;
 }
@@ -204,6 +205,7 @@ html {
   border: solid thin #4b5862;
 }
 
+/* design */
 #state {
   position: relative;
   margin-top: 30vh;
@@ -212,8 +214,9 @@ html {
   background: url("../../images/illustration-phones.svg") no-repeat center;
   background-size: contain;
   height: 90vh;
-  width: 105%;
+  width: 100%;
   position: absolute;
+  background-size: 105% auto;
   transform: translate(-2.5%, -50%);
 }
 #state .card-design {
@@ -245,8 +248,9 @@ html {
   background: url("../../images/illustration-laptop-mobile.svg") no-repeat center;
   background-size: contain;
   height: 60vh;
-  width: 130%;
-  transform: translate(-10%);
+  width: 100%;
+  background-size: 130% auto;
+  transform: translate(1%);
 }
 #state .text {
   color: #4b5862;
@@ -255,6 +259,35 @@ html {
 }
 #state .text p {
   font-size: calc(1rem + 0.3vw);
+}
+
+/* state */
+#footer {
+  background-color: #25252d;
+  color: white;
+  font-size: calc(1rem + 0.2vw);
+  border-top-right-radius: 5rem;
+  padding: 3rem 0;
+}
+#footer h2 {
+  font-size: calc(1rem + 0.2vw);
+  padding: 2rem 0;
+}
+#footer ul {
+  list-style: none;
+}
+
+/* footer */
+.attribution {
+  background-color: #25252d;
+  color: white;
+  text-align: center;
+}
+.attribution a {
+  color: #ff525d;
+}
+.attribution a:hover {
+  color: #ff7a85;
 }
 
 /*# sourceMappingURL=styles.css.map */
