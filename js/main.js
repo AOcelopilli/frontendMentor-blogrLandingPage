@@ -5,6 +5,7 @@ const d = document,
 d.addEventListener("click", (e) => {
   /* Hamburguer button */
   if (e.target == $btnMenu || e.target.matches("ul *")) {
+    $btnMenu.classList.toggle("active");
     $menu.classList.toggle("active");
   }
 
