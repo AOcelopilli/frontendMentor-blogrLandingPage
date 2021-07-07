@@ -1,1 +1,23 @@
+/* Regular buttons */
+@mixin button($bg-color: transparent, $width: 50%, $height: 60px) {
+  width: $width;
+  height: $height;
+  border-radius: 2rem;
+  font-size: calc(1rem + 1vw);
+  font-weight: bold;
+  border: none;
+  outline: none;
+  margin: 0.5rem auto;
+  background-color: $bg-color;
+  transition: all 0.4s cubic-bezier(0.39, 0.575, 0.565, 1);
+  cursor: pointer;
+}
 
+/* big images */
+@mixin insert-img($name, $x: 100vw, $y: 50vh) {
+  $img: "../../images/#{$name}";
+  background: url($img) no-repeat center;
+  background-size: contain;
+  height: $y;
+  width: $x;
+}

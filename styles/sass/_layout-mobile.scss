@@ -1,18 +1,11 @@
+/* Local variables */
 $content-height: 80vh;
 $margin: 2rem;
 $font-p: calc(1rem + 1vw);
 
+/* circle styles */
 $circle1: 45vh;
 $circle2: 35vh;
-
-@mixin insert-img($name, $x: 100vw, $y: 50vh) {
-  $img: "../../images/#{$name}";
-  background: url($img) no-repeat center;
-  background-size: contain;
-  height: $y;
-  width: $x;
-}
-
 %circle {
   content: "";
   position: absolute;
@@ -89,17 +82,19 @@ $circle2: 35vh;
   }
 
   .actions {
+    display: flex;
+    justify-content: space-evenly;
+
     button {
       font-family: $font-overpass;
-      height: 50px;
-      width: 40%;
-      vertical-align: middle;
-      border-radius: 1.5rem;
-      font-size: 1.2rem;
-      border: none;
-      margin: 0 0.5rem;
-      font-weight: bold;
+      @include button($main-white, 40%, 8vh);
       color: $main-red;
+
+      &:last-child {
+        background-color: transparent;
+        color: $main-white;
+        border: thin solid $main-white;
+      }
     }
   }
 } /* main */
@@ -202,6 +197,7 @@ $circle2: 35vh;
 
 #footer {
   @extend %flex-col-cen;
+  margin-top: 5rem;
 
   background-color: $main-blue-dark;
   color: $main-white;

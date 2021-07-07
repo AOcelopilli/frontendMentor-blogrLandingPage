@@ -1,4 +1,3 @@
-@charset "UTF-8";
 /* === FONTS === */
 /* font size */
 /* --- overpass --- */
@@ -30,6 +29,8 @@ html {
   font-size: 16px;
 }
 
+/* Regular buttons */
+/* big images */
 #header {
   align-items: flex-start;
   display: flex;
@@ -44,7 +45,7 @@ html {
   height: 4vh;
 }
 
-#menu #menu-btn {
+#menu-btn {
   position: relative;
   background: transparent;
   border: none;
@@ -53,7 +54,7 @@ html {
   outline: none;
   cursor: pointer;
 }
-#menu #menu-btn::before {
+#menu-btn::before {
   content: "";
   background: url(../../images/icon-hamburger.svg) no-repeat center;
   background-size: contain;
@@ -64,16 +65,14 @@ html {
   left: 50%;
   transform: translate(-50%, -50%);
 }
-#menu #menu-items {
+
+#menu-items {
   position: absolute;
   left: 5%;
-  top: -200vh;
+  top: 0vh;
   width: 90%;
   border-radius: 0.5rem;
   padding: 1rem;
-  background-color: white;
-  animation: hideMenu 0.5s ease-out both;
-  /* AGREGAR ANIMACIÓN PARA DESAPARECER MENU BIEN BONITO */
 }
 @keyframes hideMenu {
   from {
@@ -83,9 +82,6 @@ html {
     top: -200vh;
   }
 }
-#menu #menu-items.active {
-  animation: showMenu 0.3s ease forwards;
-}
 @keyframes showMenu {
   from {
     top: -100vh;
@@ -94,15 +90,16 @@ html {
     top: 10vh;
   }
 }
-#menu .dropdown {
+
+.dropdown {
   display: grid;
   place-items: center;
   /* span */
 }
-#menu .dropdown.active span::after {
+.dropdown.active span::after {
   transform: translate(150%, -50%) rotate(180deg);
 }
-#menu .dropdown span {
+.dropdown span {
   color: #1f3f5b;
   font-weight: 600;
   font-size: calc(1.2rem + 1vw);
@@ -110,18 +107,19 @@ html {
   padding: 1rem;
   cursor: pointer;
 }
-#menu .dropdown span::after {
+.dropdown span::after {
   content: "";
   background: url(../../images/icon-arrow-dark.svg) no-repeat center;
-  background-size: contain;
+  background-size: cover;
   width: 10px;
   height: 10px;
   position: absolute;
   top: 50%;
   right: 0;
   transform: translate(150%, -50%);
+  transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
 }
-#menu .dropdown ul {
+.dropdown ul {
   list-style: none;
   background-color: rgba(200, 200, 203, 0.3);
   width: 90%;
@@ -135,17 +133,23 @@ html {
   transition: height 0.35s cubic-bezier(0.215, 0.61, 0.355, 1);
   animation: contractDropdown 0.5s ease both;
 }
-#menu .dropdown ul li {
-  padding: 1rem;
+.dropdown li {
+  padding: 0.5rem 1rem;
+  margin: 0.25rem 1rem;
   color: #1f3f5b;
+  border-radius: 0.5rem;
   font-size: calc(1rem + 0.5vw);
 }
-#menu .actions {
+.dropdown li:hover {
+  background-color: white;
+}
+
+.actions {
   display: flex;
   flex-direction: column;
 }
-#menu .actions button {
-  width: 60%;
+.actions button {
+  width: 50%;
   height: 60px;
   border-radius: 2rem;
   font-size: calc(1rem + 1vw);
@@ -154,18 +158,115 @@ html {
   outline: none;
   margin: 0.5rem auto;
   background-color: transparent;
+  transition: all 0.4s cubic-bezier(0.39, 0.575, 0.565, 1);
+  cursor: pointer;
 }
-#menu .actions button:first-child:hover {
+.actions button:first-child:hover {
   border: thin solid #ff525d;
+  color: #ff525d;
 }
-#menu .actions button:last-child {
+.actions button:last-child {
   background: linear-gradient(90deg, #ff8f70, #ff3d54);
   color: white;
 }
-#menu .actions button:last-child:hover {
+.actions button:last-child:hover {
   opacity: 0.75;
 }
 
+@media (max-width: 800px) {
+  #menu-items {
+    animation: hideMenu 0.5s ease-out both;
+    background-color: white;
+  }
+  #menu-items.active {
+    animation: showMenu 0.3s ease forwards;
+  }
+}
+@media (min-width: 800px) {
+  #header {
+    justify-content: flex-start;
+  }
+
+  #menu {
+    width: 100%;
+  }
+
+  #menu-btn {
+    display: none;
+  }
+
+  #menu-items {
+    text-align: left;
+    display: flex;
+    justify-content: flex-start;
+    top: 1vh;
+    left: 0;
+    position: relative;
+    background-color: transparent;
+    width: 100%;
+    padding: 0;
+  }
+
+  .dropdown {
+    display: block;
+    position: relative;
+    margin: 0 1rem;
+  }
+  .dropdown span {
+    font-size: calc(1rem + 0.1vw);
+    color: white;
+  }
+  .dropdown span::after {
+    background-image: url(../../images/icon-arrow-light.svg);
+    right: 10%;
+  }
+  .dropdown ul {
+    width: min-content;
+    position: absolute;
+    top: 3vh;
+    background: white;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+  }
+  .dropdown li {
+    text-align: left;
+    font-size: calc(1rem + 0.1vw);
+    padding: 0 1rem;
+    margin: 0.5rem 0;
+  }
+  .dropdown li:hover {
+    color: #25252d;
+    font-weight: bold;
+  }
+
+  .actions {
+    position: absolute;
+    flex-direction: row;
+    right: 0;
+  }
+  .actions button {
+    font-size: calc(1rem + 0.1vw);
+    width: auto;
+    height: auto;
+    padding: 0.75rem 2rem;
+    transform: translateY(-30%);
+    color: white;
+    margin: 0 0.25rem;
+  }
+  .actions button:first-child:hover {
+    border: thin solid white;
+    color: white;
+  }
+  .actions button:last-child {
+    background: white;
+    color: #ff525d;
+  }
+  .actions button:last-child:hover {
+    background: rgba(255, 255, 255, 0.33);
+    color: white;
+  }
+}
+/* Local variables */
+/* circle styles */
 #design .central-img::before, #design .central-img::after {
   content: "";
   position: absolute;
@@ -235,17 +336,29 @@ html {
   width: 90%;
   margin: 0 auto 2rem;
 }
+#main .actions {
+  display: flex;
+  justify-content: space-evenly;
+}
 #main .actions button {
   font-family: "Overpass", sans-serif;
-  height: 50px;
   width: 40%;
-  vertical-align: middle;
-  border-radius: 1.5rem;
-  font-size: 1.2rem;
-  border: none;
-  margin: 0 0.5rem;
+  height: 8vh;
+  border-radius: 2rem;
+  font-size: calc(1rem + 1vw);
   font-weight: bold;
+  border: none;
+  outline: none;
+  margin: 0.5rem auto;
+  background-color: white;
+  transition: all 0.4s cubic-bezier(0.39, 0.575, 0.565, 1);
+  cursor: pointer;
   color: #ff525d;
+}
+#main .actions button:last-child {
+  background-color: transparent;
+  color: white;
+  border: thin solid white;
 }
 
 /* main */
@@ -333,6 +446,7 @@ html {
 
 /* state */
 #footer {
+  margin-top: 5rem;
   background-color: #25252d;
   color: white;
   font-size: calc(1rem + 0.2vw);
@@ -359,5 +473,8 @@ html {
 .attribution a:hover {
   color: #ff7a85;
 }
+
+/* Regular buttons */
+/* big images */
 
 /*# sourceMappingURL=styles.css.map */

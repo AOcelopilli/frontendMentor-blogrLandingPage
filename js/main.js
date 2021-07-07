@@ -3,14 +3,12 @@ const d = document,
   $menu = d.getElementById("menu-items");
 
 d.addEventListener("click", (e) => {
-  /* show or hide menu */
+  /* Hamburguer button */
   if (e.target == $btnMenu || e.target.matches("ul *")) {
-    /* AGREGAR ANIMACIÓN PARA DESAPARECER MENU BIEN BONITO */
-
     $menu.classList.toggle("active");
   }
 
-  /* Expand or contract items */
+  /* Dropdown section menu */
   if (e.target.matches(".dropdown *")) {
     e.target.parentNode.classList.toggle("active");
 

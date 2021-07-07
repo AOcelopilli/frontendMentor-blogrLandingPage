@@ -1,3 +1,4 @@
+@import "mixins";
 #header {
   align-items: flex-start;
   display: flex;
@@ -13,142 +14,240 @@
   }
 }
 
-#menu {
-  #menu-btn {
-    position: relative;
-    background: transparent;
-    border: none;
-    min-width: 50px;
-    height: 100%;
-    outline: none;
-    cursor: pointer;
+#menu-btn {
+  position: relative;
+  background: transparent;
+  border: none;
+  min-width: 50px;
+  height: 100%;
+  outline: none;
+  cursor: pointer;
 
-    &::before {
-      content: "";
-      background: url(../../images/icon-hamburger.svg) no-repeat center;
-      background-size: contain;
-      width: 2rem;
-      height: 2rem;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+  &::before {
+    content: "";
+    background: url(../../images/icon-hamburger.svg) no-repeat center;
+    background-size: contain;
+    width: 2rem;
+    height: 2rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+#menu-items {
+  position: absolute;
+  left: 5%;
+  top: 0vh;
+  width: 90%;
+  border-radius: 0.5rem;
+  padding: 1rem;
+
+  @keyframes hideMenu {
+    from {
+      top: -50vh;
+    }
+
+    to {
+      top: -200vh;
     }
   }
 
-  #menu-items {
-    position: absolute;
-    left: 5%;
-    top: -200vh;
-    width: 90%;
-    border-radius: 0.5rem;
-    padding: 1rem;
-    background-color: $main-white;
-    animation: hideMenu 0.5s ease-out both;
-    /* AGREGAR ANIMACIÓN PARA DESAPARECER MENU BIEN BONITO */
-    @keyframes hideMenu {
-      from {
-        top: -50vh;
-      }
+  @keyframes showMenu {
+    from {
+      top: -100vh;
+    }
 
-      to {
-        top: -200vh;
+    to {
+      top: 10vh;
+    }
+  }
+}
+
+.dropdown {
+  display: grid;
+  place-items: center;
+
+  &.active {
+    span::after {
+      transform: translate(150%, -50%) rotate(180deg);
+    }
+  }
+
+  span {
+    color: $main-blue;
+    font-weight: 600;
+    font-size: calc(1.2rem + 1vw);
+    position: relative;
+    padding: 1rem;
+    cursor: pointer;
+
+    &::after {
+      content: "";
+      background: url(../../images/icon-arrow-dark.svg) no-repeat center;
+      background-size: cover;
+      width: 10px;
+      height: 10px;
+      position: absolute;
+      top: 50%;
+      right: 0;
+      transform: translate(150%, -50%);
+      transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+    }
+  } /* span */
+
+  ul {
+    list-style: none;
+    background-color: rgba($color: $main-blue-gray, $alpha: 0.3);
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    text-align: center;
+    border-radius: 0.5rem;
+    height: 0px;
+    overflow: hidden;
+    transition: height 0.35s cubic-bezier(0.215, 0.61, 0.355, 1);
+    animation: contractDropdown 0.5s ease both;
+  }
+
+  li {
+    padding: 0.5rem 1rem;
+    margin: 0.25rem 1rem;
+    color: $main-blue;
+    border-radius: 0.5rem;
+    font-size: calc(1rem + 0.5vw);
+
+    &:hover {
+      background-color: $main-white;
+    }
+  }
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+
+  button {
+    @include button;
+
+    &:first-child:hover {
+      border: thin solid $main-red;
+      color: $main-red;
+    }
+
+    &:last-child {
+      background: linear-gradient(90deg, $gradiant1-from, $gradiant1-to);
+      color: white;
+
+      &:hover {
+        opacity: 0.75;
       }
     }
+  }
+}
+
+@media (max-width: 800px) {
+  #menu-items {
+    animation: hideMenu 0.5s ease-out both;
+    background-color: $main-white;
 
     &.active {
       animation: showMenu 0.3s ease forwards;
     }
+  }
+}
 
-    @keyframes showMenu {
-      from {
-        top: -100vh;
-      }
+@media (min-width: 800px) {
+  #header {
+    justify-content: flex-start;
+  }
 
-      to {
-        top: 10vh;
-      }
-    }
+  #menu {
+    width: 100%;
+  }
+
+  #menu-btn {
+    display: none;
+  }
+
+  #menu-items {
+    text-align: left;
+    display: flex;
+    justify-content: flex-start;
+    top: 1vh;
+    left: 0;
+    position: relative;
+    background-color: transparent;
+    width: 100%;
+    padding: 0;
   }
 
   .dropdown {
-    display: grid;
-    place-items: center;
+    display: block;
+    position: relative;
+    margin: 0 1rem;
 
-    &.active {
-      span::after {
-        transform: translate(150%, -50%) rotate(180deg);
+    span {
+      font-size: calc(1rem + 0.1vw);
+      color: white;
+
+      &::after {
+        background-image: url(../../images/icon-arrow-light.svg);
+        right: 10%;
       }
     }
 
-    span {
-      color: $main-blue;
-      font-weight: 600;
-      font-size: calc(1.2rem + 1vw);
-      position: relative;
-      padding: 1rem;
-      cursor: pointer;
-
-      &::after {
-        content: "";
-        background: url(../../images/icon-arrow-dark.svg) no-repeat center;
-        background-size: contain;
-        width: 10px;
-        height: 10px;
-        position: absolute;
-        top: 50%;
-        right: 0;
-        transform: translate(150%, -50%);
-      }
-    } /* span */
-
     ul {
-      list-style: none;
-      background-color: rgba($color: $main-blue-gray, $alpha: 0.3);
-      width: 90%;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-evenly;
-      text-align: center;
-      border-radius: 0.5rem;
-      height: 0px;
-      overflow: hidden;
-      transition: height 0.35s cubic-bezier(0.215, 0.61, 0.355, 1);
-      animation: contractDropdown 0.5s ease both;
+      width: min-content;
+      position: absolute;
+      top: 3vh;
+      background: white;
+      box-shadow: 0px 0px 20px rgba($color: #000000, $alpha: 0.2);
+    }
 
-      li {
-        padding: 1rem;
-        color: $main-blue;
-        font-size: calc(1rem + 0.5vw);
+    li {
+      text-align: left;
+      font-size: calc(1rem + 0.1vw);
+      padding: 0 1rem;
+      margin: 0.5rem 0;
+
+      &:hover {
+        color: $main-blue-dark;
+        font-weight: bold;
       }
     }
   }
 
   .actions {
-    display: flex;
-    flex-direction: column;
+    position: absolute;
+    flex-direction: row;
+    right: 0;
 
     button {
-      width: 60%;
-      height: 60px;
-      border-radius: 2rem;
-      font-size: calc(1rem + 1vw);
-      font-weight: bold;
-      border: none;
-      outline: none;
-      margin: 0.5rem auto;
-      background-color: transparent;
+      font-size: calc(1rem + 0.1vw);
+      width: auto;
+      height: auto;
+      padding: 0.75rem 2rem;
+      transform: translateY(-30%);
+      color: $main-white;
+      margin: 0 0.25rem;
 
-      &:first-child:hover {
-        border: thin solid $main-red;
+      &:first-child {
+        &:hover {
+          border: thin solid $main-white;
+          color: white;
+        }
       }
 
       &:last-child {
-        background: linear-gradient(90deg, $gradiant1-from, $gradiant1-to);
-        color: white;
+        background: $main-white;
+        color: $main-red;
 
         &:hover {
-          opacity: 0.75;
+          background: rgba($color: $main-white, $alpha: 0.33);
+          color: $main-white;
         }
       }
     }
