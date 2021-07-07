@@ -309,7 +309,7 @@ html {
   margin-bottom: 2rem;
 }
 #main .bg-section {
-  background: url(../../images/bg-pattern-intro.svg) no-repeat;
+  background: url(../images/bg-pattern-intro.svg) no-repeat;
   background-position: 35% 33%;
   background-size: 310%;
   height: 80vh;
@@ -360,28 +360,13 @@ html {
   color: #4b5862;
 }
 #design .central-img {
-  background: url(../../images/illustration-editor-mobile.svg) no-repeat center;
+  background: url(../images/illustration-editor-mobile.svg) no-repeat center;
   background-size: contain;
   border-radius: 0.5rem;
   width: 90%;
   height: 30vh;
   position: relative;
   margin: 5rem auto;
-  /* &::after {
-    @extend %circle;
-    content: "";
-    width: $circle1;
-    height: $circle1;
-    border: solid thin $main-blue-gray;
-  }
-
-  &::before {
-    @extend %circle;
-    content: "";
-    width: $circle2;
-    height: $circle2;
-    border: solid thin $main-blue-gray-dark;
-  } */
 }
 
 /* design */
@@ -406,7 +391,7 @@ html {
   overflow: hidden;
 }
 #state .card-design .bg-section {
-  background: url(../../images/bg-pattern-circles.svg) no-repeat;
+  background: url(../images/bg-pattern-circles.svg) no-repeat;
   background-position: 50% -230px;
   background-size: 160%;
   height: 80vh;
@@ -525,7 +510,7 @@ html {
     font-size: calc(2rem + 1vw);
   }
   #design .central-img {
-    background-image: url(../../images/illustration-editor-desktop.svg);
+    background-image: url(../images/illustration-editor-desktop.svg);
     height: 50vh;
     width: 200%;
     grid-column: 3;
@@ -562,7 +547,7 @@ html {
   }
   #state .card-design::after {
     content: "";
-    background: url(../../images/bg-pattern-circles.svg) no-repeat center;
+    background: url(../images/bg-pattern-circles.svg) no-repeat center;
     background-size: cover;
     position: absolute;
     height: 500px;
@@ -588,7 +573,7 @@ html {
     margin: 1rem auto;
   }
   #state .middle-img {
-    background-image: url(../../images/illustration-laptop-desktop.svg);
+    background-image: url(../images/illustration-laptop-desktop.svg);
     height: 60vh;
     width: 200%;
     transform: translate(-50%, 0%);

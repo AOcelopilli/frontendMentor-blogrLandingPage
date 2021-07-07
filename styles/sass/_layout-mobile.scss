@@ -54,7 +54,7 @@ $circle2: 35vh;
   margin-bottom: $margin;
 
   .bg-section {
-    background: url(../../images/bg-pattern-intro.svg) no-repeat;
+    background: url(../images/bg-pattern-intro.svg) no-repeat;
     background-position: 35% 33%;
     background-size: 310%;
     height: $content-height;
@@ -106,30 +106,13 @@ $circle2: 35vh;
   color: $main-blue-gray-dark;
 
   .central-img {
-    background: url(../../images/illustration-editor-mobile.svg) no-repeat
-      center;
+    background: url(../images/illustration-editor-mobile.svg) no-repeat center;
     background-size: contain;
     border-radius: 0.5rem;
     width: 90%;
     height: 30vh;
     position: relative;
     margin: 5rem auto;
-
-    /* &::after {
-      @extend %circle;
-      content: "";
-      width: $circle1;
-      height: $circle1;
-      border: solid thin $main-blue-gray;
-    }
-
-    &::before {
-      @extend %circle;
-      content: "";
-      width: $circle2;
-      height: $circle2;
-      border: solid thin $main-blue-gray-dark;
-    } */
   }
 } /* design */
 
@@ -156,7 +139,7 @@ $circle2: 35vh;
 
     .bg-section {
       @extend %text-style;
-      background: url(../../images/bg-pattern-circles.svg) no-repeat;
+      background: url(../images/bg-pattern-circles.svg) no-repeat;
       background-position: 50% -230px;
       background-size: 160%;
       height: 80vh;
