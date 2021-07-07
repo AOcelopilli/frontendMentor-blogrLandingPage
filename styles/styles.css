@@ -154,7 +154,7 @@ html {
   border-radius: 2rem;
   font-size: calc(1rem + 1vw);
   font-weight: bold;
-  border: none;
+  border: thin solid transparent;
   outline: none;
   margin: 0.5rem auto;
   background-color: transparent;
@@ -184,7 +184,10 @@ html {
 }
 @media (min-width: 800px) {
   #header {
-    justify-content: flex-start;
+    justify-content: space-evenly;
+  }
+  #header .logo {
+    padding-left: calc(2rem + 1vw);
   }
 
   #menu {
@@ -206,44 +209,42 @@ html {
     width: 100%;
     padding: 0;
   }
-
-  .dropdown {
+  #menu-items .dropdown {
     display: block;
     position: relative;
     margin: 0 1rem;
   }
-  .dropdown span {
+  #menu-items .dropdown span {
     font-size: calc(1rem + 0.1vw);
     color: white;
   }
-  .dropdown span::after {
+  #menu-items .dropdown span::after {
     background-image: url(../../images/icon-arrow-light.svg);
     right: 10%;
   }
-  .dropdown ul {
+  #menu-items .dropdown ul {
     width: min-content;
     position: absolute;
     top: 3vh;
     background: white;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
   }
-  .dropdown li {
+  #menu-items .dropdown li {
     text-align: left;
     font-size: calc(1rem + 0.1vw);
     padding: 0 1rem;
     margin: 0.5rem 0;
   }
-  .dropdown li:hover {
+  #menu-items .dropdown li:hover {
     color: #25252d;
     font-weight: bold;
   }
-
-  .actions {
+  #menu-items .actions {
     position: absolute;
     flex-direction: row;
     right: 0;
   }
-  .actions button {
+  #menu-items .actions button {
     font-size: calc(1rem + 0.1vw);
     width: auto;
     height: auto;
@@ -252,31 +253,21 @@ html {
     color: white;
     margin: 0 0.25rem;
   }
-  .actions button:first-child:hover {
+  #menu-items .actions button:first-child:hover {
     border: thin solid white;
     color: white;
   }
-  .actions button:last-child {
+  #menu-items .actions button:last-child {
     background: white;
     color: #ff525d;
   }
-  .actions button:last-child:hover {
+  #menu-items .actions button:last-child:hover {
     background: rgba(255, 255, 255, 0.33);
     color: white;
   }
 }
 /* Local variables */
 /* circle styles */
-#design .central-img::before, #design .central-img::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  border-radius: 50%;
-  z-index: -1;
-}
-
 #state .card-design .bg-section h2, #state h2, #design h2,
 #state .card-design .bg-section h3,
 #state h3,
@@ -338,7 +329,6 @@ html {
 }
 #main .actions {
   display: flex;
-  justify-content: space-evenly;
 }
 #main .actions button {
   font-family: "Overpass", sans-serif;
@@ -347,7 +337,7 @@ html {
   border-radius: 2rem;
   font-size: calc(1rem + 1vw);
   font-weight: bold;
-  border: none;
+  border: thin solid transparent;
   outline: none;
   margin: 0.5rem auto;
   background-color: white;
@@ -367,25 +357,27 @@ html {
 }
 #design .central-img {
   background: url(../../images/illustration-editor-mobile.svg) no-repeat center;
-  background-size: 125%;
+  background-size: contain;
   border-radius: 0.5rem;
-  box-shadow: 0 20px 80px rgba(31, 63, 91, 0.26);
   width: 90%;
   height: 30vh;
   position: relative;
   margin: 5rem auto;
-}
-#design .central-img::after {
-  content: "";
-  width: 45vh;
-  height: 45vh;
-  border: solid thin #c8c8cb;
-}
-#design .central-img::before {
-  content: "";
-  width: 35vh;
-  height: 35vh;
-  border: solid thin #4b5862;
+  /* &::after {
+    @extend %circle;
+    content: "";
+    width: $circle1;
+    height: $circle1;
+    border: solid thin $main-blue-gray;
+  }
+
+  &::before {
+    @extend %circle;
+    content: "";
+    width: $circle2;
+    height: $circle2;
+    border: solid thin $main-blue-gray-dark;
+  } */
 }
 
 /* design */
@@ -474,6 +466,165 @@ html {
   color: #ff7a85;
 }
 
+@media (min-width: 800px) {
+  #main {
+    background: linear-gradient(80deg, #ff8f70, #ff3d54);
+    min-height: 60vh;
+  }
+  #main .bg-section {
+    height: 60vh;
+    background-size: 250%;
+    background-position: 25% 55%;
+  }
+  #main .text h1 {
+    font-size: calc(1.5rem + 2.5vw);
+  }
+  #main .text h1 span {
+    display: inline;
+  }
+  #main .text p {
+    font-size: calc(1rem + 0.5vw);
+  }
+  #main .actions {
+    width: 50%;
+    align-self: center;
+    flex-direction: row;
+    justify-content: center;
+  }
+  #main .actions button {
+    height: 5vh;
+    width: 30%;
+    margin: 0 0.5rem;
+    font-size: calc(0.5rem + 1vw);
+  }
+  #main .actions button:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+  }
+  #main .actions button:last-child {
+    background: transparent;
+  }
+  #main .actions button:last-child:hover {
+    background: white;
+    opacity: 1;
+    color: #ff525d;
+  }
+
+  #design {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 10vh, repeat(2, minmax(autofit, 1fr));
+    overflow-x: hidden;
+  }
+  #design h2 {
+    grid-column: span 3;
+    font-size: calc(2rem + 1vw);
+  }
+  #design .central-img {
+    background-image: url(../../images/illustration-editor-desktop.svg);
+    height: 50vh;
+    width: 200%;
+    grid-column: 3;
+    grid-row: span 2;
+  }
+  #design .text {
+    text-align: left;
+  }
+  #design .text1 {
+    grid-column: 1/3;
+    grid-row: 2;
+  }
+  #design .text2 {
+    grid-column: 1/3;
+  }
+
+  #state {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 35vh 10vh repeat(2, 1fr);
+    overflow-x: hidden;
+  }
+  #state .central-img {
+    transform: translate(12.5%, 0%);
+    width: 40%;
+    height: 50vh;
+    z-index: 10;
+    grid-column: span 3;
+  }
+  #state .card-design {
+    position: relative;
+    grid-column: span 3;
+    margin-top: 5vh;
+  }
+  #state .card-design::after {
+    content: "";
+    background: url(../../images/bg-pattern-circles.svg) no-repeat center;
+    background-size: cover;
+    position: absolute;
+    height: 500px;
+    width: 650px;
+    top: -90%;
+    left: -17%;
+  }
+  #state .card-design .bg-section {
+    position: relative;
+    top: 0;
+    right: -20%;
+    height: 30vh;
+    text-align: left;
+    width: 50%;
+    background: transparent;
+  }
+  #state .card-design .bg-section h2 {
+    font-size: calc(1rem + 1vw);
+  }
+  #state .card-design .bg-section p {
+    width: 100%;
+    font-size: calc(0.75rem + 0.1vw);
+    margin: 1rem auto;
+  }
+  #state .middle-img {
+    background-image: url(../../images/illustration-laptop-desktop.svg);
+    height: 60vh;
+    width: 200%;
+    transform: translate(-50%, 0%);
+    grid-column: 1/2;
+    grid-row: 3/5;
+  }
+  #state .text {
+    text-align: left;
+  }
+  #state .text1 {
+    grid-column: 2/4;
+    grid-row: 3/4;
+  }
+  #state .text2 {
+    grid-column: 2/4;
+    grid-row: 4/5;
+  }
+
+  /* #state */
+  #footer {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  #footer .text {
+    display: flex;
+    justify-content: space-evenly;
+    text-align: left;
+    width: 50%;
+  }
+  #footer .text .feet h2 {
+    padding: 0 0 1rem;
+  }
+  #footer .text .feet li {
+    padding: 0.5rem 0;
+    cursor: pointer;
+  }
+  #footer .text .feet li:hover {
+    text-decoration: underline;
+  }
+}
 /* Regular buttons */
 /* big images */
 

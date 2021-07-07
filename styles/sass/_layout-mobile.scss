@@ -6,6 +6,7 @@ $font-p: calc(1rem + 1vw);
 /* circle styles */
 $circle1: 45vh;
 $circle2: 35vh;
+
 %circle {
   content: "";
   position: absolute;
@@ -83,7 +84,6 @@ $circle2: 35vh;
 
   .actions {
     display: flex;
-    justify-content: space-evenly;
 
     button {
       font-family: $font-overpass;
@@ -108,15 +108,14 @@ $circle2: 35vh;
   .central-img {
     background: url(../../images/illustration-editor-mobile.svg) no-repeat
       center;
-    background-size: 125%;
+    background-size: contain;
     border-radius: 0.5rem;
-    box-shadow: 0 20px 80px rgba($color: $main-blue, $alpha: 0.26);
     width: 90%;
     height: 30vh;
     position: relative;
     margin: 5rem auto;
 
-    &::after {
+    /* &::after {
       @extend %circle;
       content: "";
       width: $circle1;
@@ -130,7 +129,7 @@ $circle2: 35vh;
       width: $circle2;
       height: $circle2;
       border: solid thin $main-blue-gray-dark;
-    }
+    } */
   }
 } /* design */
 
