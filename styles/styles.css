@@ -56,7 +56,7 @@ html {
 }
 #menu-btn::before {
   content: "";
-  background: url(../../images/icon-hamburger.svg) no-repeat center;
+  background: url(../images/icon-hamburger.svg) no-repeat center;
   background-size: contain;
   width: 2rem;
   height: 2rem;
@@ -67,7 +67,7 @@ html {
   transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
 }
 #menu-btn.active::before {
-  background-image: url(../../images/icon-close.svg);
+  background-image: url(../images/icon-close.svg);
 }
 
 #menu-items {
@@ -375,7 +375,7 @@ html {
   margin-top: 30vh;
 }
 #state .central-img {
-  background: url("../../images/illustration-phones.svg") no-repeat center;
+  background: url("../images/illustration-phones.svg") no-repeat center;
   background-size: contain;
   height: 90vh;
   width: 100%;
@@ -409,7 +409,7 @@ html {
   color: white;
 }
 #state .middle-img {
-  background: url("../../images/illustration-laptop-mobile.svg") no-repeat center;
+  background: url("../images/illustration-laptop-mobile.svg") no-repeat center;
   background-size: contain;
   height: 60vh;
   width: 100%;

@@ -15,7 +15,7 @@
 
 /* big images */
 @mixin insert-img($name, $x: 100vw, $y: 50vh) {
-  $img: "../../images/#{$name}";
+  $img: "../images/#{$name}";
   background: url($img) no-repeat center;
   background-size: contain;
   height: $y;
