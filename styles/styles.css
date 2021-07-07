@@ -18,7 +18,9 @@
 /* Intro/CTA mobile nav */
 /* body */
 /* === RESET === */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -27,6 +29,11 @@
 html {
   font-family: "Overpass", sans-serif;
   font-size: 16px;
+}
+
+body {
+  max-width: 1024px;
+  margin: 0 auto;
 }
 
 /* Regular buttons */
@@ -535,7 +542,7 @@ html {
   }
   #state .central-img {
     transform: translate(12.5%, 0%);
-    width: 40%;
+    width: 35vw;
     height: 50vh;
     z-index: 10;
     grid-column: span 3;
@@ -574,8 +581,8 @@ html {
   }
   #state .middle-img {
     background-image: url(../images/illustration-laptop-desktop.svg);
-    height: 60vh;
-    width: 200%;
+    height: 70vh;
+    width: 45vw;
     transform: translate(-50%, 0%);
     grid-column: 1/2;
     grid-row: 3/5;
